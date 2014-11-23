@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "Shared.h"
+
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+        [Shared log:@"main"];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

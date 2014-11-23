@@ -8,18 +8,14 @@
 
 #import "AppDelegate.h"
 #import "ViewControllerPlainA.h"
-
-@interface AppDelegate ()
-
-@end
+#import "Shared.h"
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    [Shared log:@"launch"];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[ViewControllerPlainA alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewControllerPlainA alloc] init]];
     [self.window makeKeyAndVisible];
     return YES;
 }
