@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B25F71AE1A228AD5005106C2 /* Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = B25F71AD1A228AD5005106C2 /* Shared.m */; };
+		B25F71AF1A228BA0005106C2 /* Shared.m in Sources */ = {isa = PBXBuildFile; fileRef = B25F71AD1A228AD5005106C2 /* Shared.m */; };
 		B2E7AB8C1A2127110074B59B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E7AB8B1A2127110074B59B /* main.m */; };
 		B2E7AB8F1A2127110074B59B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2E7AB8E1A2127110074B59B /* AppDelegate.m */; };
 		B2E7AB971A2127110074B59B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2E7AB961A2127110074B59B /* Images.xcassets */; };
@@ -71,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B25F71AC1A228AD5005106C2 /* Shared.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Shared.h; path = Shared/Shared.h; sourceTree = SOURCE_ROOT; };
+		B25F71AD1A228AD5005106C2 /* Shared.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Shared.m; path = Shared/Shared.m; sourceTree = SOURCE_ROOT; };
 		B2E7AB861A2127100074B59B /* benchboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = benchboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2E7AB8A1A2127110074B59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2E7AB8B1A2127110074B59B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -210,12 +214,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B25F71AB1A228AAE005106C2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B25F71AC1A228AD5005106C2 /* Shared.h */,
+				B25F71AD1A228AD5005106C2 /* Shared.m */,
+			);
+			name = Shared;
+			path = storyboardfree;
+			sourceTree = "<group>";
+		};
 		B2E7AB7D1A2127100074B59B = {
 			isa = PBXGroup;
 			children = (
 				B2E7AB881A2127100074B59B /* benchboard */,
 				B2E7AC561A2148760074B59B /* storyboardfree */,
 				B2E7AB871A2127100074B59B /* Products */,
+				B25F71AB1A228AAE005106C2 /* Shared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -393,8 +408,8 @@
 		B2E7AC951A214A570074B59B /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				B2E7AB8E1A2127110074B59B /* AppDelegate.m */,
 				B2E7AB8D1A2127110074B59B /* AppDelegate.h */,
+				B2E7AB8E1A2127110074B59B /* AppDelegate.m */,
 			);
 			name = Launch;
 			sourceTree = "<group>";
@@ -523,6 +538,7 @@
 				B2E7ABEC1A2138360074B59B /* ViewControllerE.m in Sources */,
 				B2E7ABF61A2138360074B59B /* ViewControllerO.m in Sources */,
 				B2E7ABFE1A2138360074B59B /* ViewControllerW.m in Sources */,
+				B25F71AE1A228AD5005106C2 /* Shared.m in Sources */,
 				B2E7ABF11A2138360074B59B /* ViewControllerJ.m in Sources */,
 				B2E7ABFC1A2138360074B59B /* ViewControllerU.m in Sources */,
 				B2E7ABE91A2138360074B59B /* ViewControllerB.m in Sources */,
@@ -543,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B25F71AF1A228BA0005106C2 /* Shared.m in Sources */,
 				B2E7AC7B1A214A130074B59B /* ViewControllerPlainA.m in Sources */,
 				B2E7AC7C1A214A130074B59B /* ViewControllerPlainB.m in Sources */,
 				B2E7AC7D1A214A130074B59B /* ViewControllerPlainC.m in Sources */,
@@ -745,6 +762,7 @@
 				B2E7ABAB1A2127110074B59B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2E7AC751A2148760074B59B /* Build configuration list for PBXNativeTarget "storyboardfree" */ = {
 			isa = XCConfigurationList;
@@ -753,6 +771,7 @@
 				B2E7AC771A2148760074B59B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
