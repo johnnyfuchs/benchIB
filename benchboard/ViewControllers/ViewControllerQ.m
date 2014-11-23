@@ -1,4 +1,5 @@
 #import "ViewControllerQ.h"
+#import "Shared.h"
 @interface ViewControllerQ ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerQ
+-(void)viewDidLoad{
+    [Shared log:@"Q loaded"];
+    self.title = @"Q";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

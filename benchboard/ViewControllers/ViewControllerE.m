@@ -1,4 +1,5 @@
 #import "ViewControllerE.h"
+#import "Shared.h"
 @interface ViewControllerE ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerE
+-(void)viewDidLoad{
+    [Shared log:@"E loaded"];
+    self.title = @"E";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

@@ -1,4 +1,5 @@
 #import "ViewControllerA.h"
+#import "Shared.h"
 @interface ViewControllerA ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerA
+-(void)viewDidLoad{
+    [Shared log:@"A loaded"];
+    self.title = @"A";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

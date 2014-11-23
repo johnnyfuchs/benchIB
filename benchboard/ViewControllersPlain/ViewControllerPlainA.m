@@ -1,4 +1,6 @@
 #import "ViewControllerPlainA.h"
+#import "ViewControllerPlainB.h"
+#import "Shared.h"
 @interface ViewControllerPlainA ()
 @property (strong, nonatomic) UIImageView *a;
 @property (strong, nonatomic) UIImageView *b;
@@ -16,6 +18,7 @@
 @implementation ViewControllerPlainA
 -(instancetype) init {
     if(self = [super init]){
+        self.view.backgroundColor = [UIColor whiteColor];
         self.a = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         [self.view addSubview:self.a];
         self.b = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
@@ -43,10 +46,14 @@
     }
     return self;
 }
-
-- (void) viewDidAppear:(BOOL)animated {
-    ViewControllerPlainA *vc = [[ViewControllerPlainA alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+-(void)viewDidLoad{
+    [Shared log:@"A loaded"];
+    self.title = @"A";
 }
 
+
+- (void) viewDidAppear:(BOOL)animated {
+    ViewControllerPlainB *vc = [[ViewControllerPlainB alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

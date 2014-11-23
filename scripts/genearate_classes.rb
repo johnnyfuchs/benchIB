@@ -7,6 +7,7 @@ end
 
 def vc_m( suffix , next_suffix )
   file = '#import "ViewController' + suffix + '.h"
+#import "Shared.h"
 @interface ViewController' + suffix + ' ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -22,6 +23,10 @@ def vc_m( suffix , next_suffix )
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewController' + suffix + '
+-(void)viewDidLoad{
+    [Shared log:@"'+suffix+' loaded"];
+    self.title = @"'+suffix+'";
+}
 '
   if next_suffix
     file += '
@@ -29,7 +34,8 @@ def vc_m( suffix , next_suffix )
     [self performSegueWithIdentifier:@"a" sender:self];
 }'
   end 
-  file += '@end'
+  file += '
+@end'
   return file
 end
 
@@ -46,6 +52,8 @@ end
 
 def vc_plain_m( suffix, next_suffix )
   file = '#import "ViewControllerPlain' + suffix + '.h"
+#import "ViewControllerPlain' + next_suffix + '.h"
+#import "Shared.h"
 @interface ViewControllerPlain' + suffix + ' ()
 @property (strong, nonatomic) UIImageView *a;
 @property (strong, nonatomic) UIImageView *b;
@@ -63,6 +71,7 @@ def vc_plain_m( suffix, next_suffix )
 @implementation ViewControllerPlain' + suffix + '
 -(instancetype) init {
     if(self = [super init]){
+        self.view.backgroundColor = [UIColor whiteColor];
         self.a = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         [self.view addSubview:self.a];
         self.b = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
@@ -89,15 +98,22 @@ def vc_plain_m( suffix, next_suffix )
         [self.view addSubview:self.l];
     }
     return self;
-}'
+}
+-(void)viewDidLoad{
+    [Shared log:@"'+suffix+' loaded"];
+    self.title = @"'+suffix+'";
+}
+
+'
   if next_suffix
     file += '
 - (void) viewDidAppear:(BOOL)animated {
-    ViewControllerPlainA *vc = [[ViewControllerPlainA alloc] init];
+    ViewControllerPlain' + next_suffix + ' *vc = [[ViewControllerPlain' + next_suffix + ' alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }'
   end 
-  file += '@end'
+  file += '
+@end'
   return file
 end
 
@@ -112,6 +128,6 @@ letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZA'.split('')
 (0..letters.length - 2).each { |idx|
   suffix = letters[idx]
   next_suffix = letters[idx + 1]
-  write_vcs( letter, next_suffix )
-  write_plain_vcs( letter, next_suffix )
+  write_vcs( suffix, next_suffix )
+  write_plain_vcs( suffix, next_suffix )
 }

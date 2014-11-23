@@ -1,4 +1,6 @@
 #import "ViewControllerPlainX.h"
+#import "ViewControllerPlainY.h"
+#import "Shared.h"
 @interface ViewControllerPlainX ()
 @property (strong, nonatomic) UIImageView *a;
 @property (strong, nonatomic) UIImageView *b;
@@ -16,6 +18,7 @@
 @implementation ViewControllerPlainX
 -(instancetype) init {
     if(self = [super init]){
+        self.view.backgroundColor = [UIColor whiteColor];
         self.a = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         [self.view addSubview:self.a];
         self.b = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
@@ -42,5 +45,15 @@
         [self.view addSubview:self.l];
     }
     return self;
+}
+-(void)viewDidLoad{
+    [Shared log:@"X loaded"];
+    self.title = @"X";
+}
+
+
+- (void) viewDidAppear:(BOOL)animated {
+    ViewControllerPlainY *vc = [[ViewControllerPlainY alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

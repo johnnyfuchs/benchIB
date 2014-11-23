@@ -1,4 +1,5 @@
 #import "ViewControllerZ.h"
+#import "Shared.h"
 @interface ViewControllerZ ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerZ
+-(void)viewDidLoad{
+    [Shared log:@"Z loaded"];
+    self.title = @"Z";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

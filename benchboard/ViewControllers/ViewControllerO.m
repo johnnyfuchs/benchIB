@@ -1,4 +1,5 @@
 #import "ViewControllerO.h"
+#import "Shared.h"
 @interface ViewControllerO ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerO
+-(void)viewDidLoad{
+    [Shared log:@"O loaded"];
+    self.title = @"O";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

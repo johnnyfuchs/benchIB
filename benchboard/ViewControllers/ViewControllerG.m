@@ -1,4 +1,5 @@
 #import "ViewControllerG.h"
+#import "Shared.h"
 @interface ViewControllerG ()
 @property (weak, nonatomic) IBOutlet UIImageView *a;
 @property (weak, nonatomic) IBOutlet UIImageView *b;
@@ -14,4 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *l;
 @end
 @implementation ViewControllerG
+-(void)viewDidLoad{
+    [Shared log:@"G loaded"];
+    self.title = @"G";
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self performSegueWithIdentifier:@"a" sender:self];
+}
 @end

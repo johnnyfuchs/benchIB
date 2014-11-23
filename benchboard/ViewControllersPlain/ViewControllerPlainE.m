@@ -1,4 +1,6 @@
 #import "ViewControllerPlainE.h"
+#import "ViewControllerPlainF.h"
+#import "Shared.h"
 @interface ViewControllerPlainE ()
 @property (strong, nonatomic) UIImageView *a;
 @property (strong, nonatomic) UIImageView *b;
@@ -16,6 +18,7 @@
 @implementation ViewControllerPlainE
 -(instancetype) init {
     if(self = [super init]){
+        self.view.backgroundColor = [UIColor whiteColor];
         self.a = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         [self.view addSubview:self.a];
         self.b = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
@@ -42,5 +45,15 @@
         [self.view addSubview:self.l];
     }
     return self;
+}
+-(void)viewDidLoad{
+    [Shared log:@"E loaded"];
+    self.title = @"E";
+}
+
+
+- (void) viewDidAppear:(BOOL)animated {
+    ViewControllerPlainF *vc = [[ViewControllerPlainF alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
