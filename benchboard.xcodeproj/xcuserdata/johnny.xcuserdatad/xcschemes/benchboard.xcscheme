@@ -20,20 +20,6 @@
                ReferencedContainer = "container:benchboard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2E7AB9E1A2127110074B59B"
-               BuildableName = "benchboardTests.xctest"
-               BlueprintName = "benchboardTests"
-               ReferencedContainer = "container:benchboard.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2E7AB9E1A2127110074B59B"
-               BuildableName = "benchboardTests.xctest"
-               BlueprintName = "benchboardTests"
-               ReferencedContainer = "container:benchboard.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
