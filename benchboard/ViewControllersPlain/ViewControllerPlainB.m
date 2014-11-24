@@ -20,6 +20,7 @@
     if(self = [super init]){
         self.view.backgroundColor = [UIColor whiteColor];
         self.a = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+        self.a.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1];
         [self.view addSubview:self.a];
         self.b = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
         [self.view addSubview:self.b];
