@@ -9,6 +9,8 @@
 #import "Shared.h"
 #import <mach/mach.h>
 
+static const NSString *memoryKey = @"mem";
+static const NSString *timeKey = @"time";
 
 unsigned long report_memory(void) {
     unsigned long bytes = 0;
@@ -25,6 +27,7 @@ unsigned long report_memory(void) {
 }
 
 static NSDate *firstEventDate;
+static NSMutableArray *data;
 
 @implementation Shared
 
@@ -34,7 +37,36 @@ static NSDate *firstEventDate;
         firstEventDate = [NSDate date];
     }
     
-    NSLog(@"%@ at %f using %lul bytes", evenName, [[NSDate date] timeIntervalSinceDate:firstEventDate], report_memory());
+    if(!data){
+        data = [NSMutableArray new];
+    }
+    
+    NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:firstEventDate];
+    unsigned long mem = report_memory();
+    
+    NSDictionary *event = @{ memoryKey : @(mem), timeKey : @(elapsed)};
+
+    [data addObject:event];
+    if(data.count >= 100){
+        [self printTabbed];
+        exit(0);
+    }
 }
+
++ (void) printTabbed {
+    
+    NSMutableString *s = [@"\n\n" mutableCopy];
+    for(NSDictionary *item in data){
+        [s appendString:[NSString stringWithFormat:@"\n%@\t%@", item[timeKey], item[memoryKey]]];
+    }
+    NSLog(@"%@", s);
+}
+
++ (void) printJSON {
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:nil];
+    NSLog(@"%@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+}
+
+
 
 @end
