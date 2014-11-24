@@ -17,4 +17,7 @@ To artificially bloat the applications, I created 26 view controllers A-Z. Each 
 
 
 
+##TODO
 
+* Add graphs, analysis.
+* Add swift implementation.
